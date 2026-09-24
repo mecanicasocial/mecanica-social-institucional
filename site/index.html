@@ -41,7 +41,7 @@ h2{font-size:clamp(1.5rem,3vw,2.2rem);max-width:800px;margin-bottom:16px}
 .flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:2px;margin-top:8px}
 .step{background:#fff;border:1px solid var(--line);padding:18px;cursor:pointer;border-top:3px solid var(--line)}
 .step.on{border-top-color:var(--blue);background:#eef2ff}.step b{font-family:Georgia,serif;font-size:1.5rem;color:var(--blue)}
-.step h3{font-size:1rem;margin:6px 0}#sd{margin-top:20px;padding:20px;background:#fff;border-left:4px solid var(--blue)}
+.step:focus-visible,.tabs button:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}.step h3{font-size:1rem;margin:6px 0}#sd{margin-top:20px;padding:20px;background:#fff;border-left:4px solid var(--blue)}
 .road{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.road div{border-top:3px solid var(--navy);padding-top:14px}.road h3{margin-bottom:8px}
 form{display:grid;gap:14px;max-width:560px}input,select,textarea{padding:11px;border:1px solid var(--line);font:inherit;width:100%}
 #out{background:var(--navy);color:#9fe6ff;padding:16px;font-size:.8rem;overflow:auto;display:none;margin-top:16px}
@@ -79,7 +79,7 @@ footer{background:var(--navy);color:#8fa3b3;padding:36px 0;font-size:.8rem}
 <div class="tag">Core business</div>
 <h2>La Escuela de Formación es el motor de capacidades de nuestra oferta</h2>
 <p class="lead">Cursos aplicados, proyectos reales y evidencia de aprendizaje: la base para que municipios, empresas y organizaciones colaboren mejor.</p>
-<div class="core"><h3>Escuela de Formación Marcelo Orellana Lagos</h3>
+<div class="core"><h3>Escuela de Formación Política Marcelo Orellana Lagos</h3>
 <p>16 cursos: democracia, políticas públicas, participación ciudadana, diseño de proyectos, tecnología e IA, innovación social y proyecto final.</p>
 <a class="btn" id="lnkEscuela" href="#">Ir a la Escuela</a></div></div></section>
 
@@ -109,9 +109,9 @@ footer{background:var(--navy);color:#8fa3b3;padding:36px 0;font-size:.8rem}
 <footer><div class="w">ONG Mecánica Social · Concepción, Chile · Contenido generado con asistencia de IA y revisado por personas · Documento de planificación, cifras referenciales.</div></footer>
 
 <script>
-// >>> CAMBIA ESTO por tu usuario de GitHub <<<
-const USUARIO="LeodanZapata";
-document.getElementById("lnkEscuela").href=`https://${USUARIO}.github.io/mecanica-social-escuela/`;
+// Enlaces del ecosistema Mecánica Social
+const URL_ESCUELA="https://mecanicasocial.github.io/mecanica-social-escuela/";
+document.getElementById("lnkEscuela").href=URL_ESCUELA;
 
 const L=[["Educación cívica y liderazgo","Actores con más competencias para participar, decidir y rendir cuentas.",["Academia de Liderazgo Cívico Territorial","Talleres ejecutivos","Formación de formadores"]],
 ["Gestión comunitaria","Acuerdos legítimos y gobernanza local.",["Laboratorio de Colaboración Territorial","Mapeo de actores y mesas","Presupuestos participativos"]],
@@ -129,7 +129,7 @@ const S=[["Solicitud","Una persona u organización completa el formulario de la 
 ["Evidencia","Se registra el resultado, se mide y se documenta para mejorar."]];
 const F=document.getElementById("flow"),D=document.getElementById("sd");
 function st(i){[...F.children].forEach((c,j)=>c.classList.toggle("on",j==i));D.innerHTML=`<b>${S[i][0]}.</b> ${S[i][1]}`}
-S.forEach((s,i)=>{F.insertAdjacentHTML("beforeend",`<div class="step"><b>0${i+1}</b><h3>${s[0]}</h3></div>`);F.lastChild.onclick=()=>st(i)});st(0);
+S.forEach((s,i)=>{F.insertAdjacentHTML("beforeend",`<div class="step" role="button" tabindex="0"><b>0${i+1}</b><h3>${s[0]}</h3></div>`);F.lastChild.onclick=()=>st(i);F.lastChild.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();st(i)}}});st(0);
 
 const V={base:[145,225,330],cons:[105,158,225]},B=document.getElementById("bars");
 function bars(k){const m=330;B.innerHTML=V[k].map(v=>`<div class="bar" style="height:${v/m*100}%"><em>${v}</em></div>`).join("")}
