@@ -1,144 +1,109 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ONG Mecánica Social | De la conversación a la acción</title>
-<meta name="description" content="ONG Mecánica Social: expertos en hacer funcionar la colaboración social.">
-<style>
-:root{--navy:#051c2c;--blue:#2251ff;--cyan:#00a9f4;--ink:#1f2933;--mute:#5b6b79;--line:#d9e0e6;--bg:#f5f7f9}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
-h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:400;color:var(--navy);line-height:1.2}
-a{color:var(--blue)}.w{max-width:1120px;margin:0 auto;padding:0 24px}
-header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:10}
-header .w{display:flex;justify-content:space-between;align-items:center;height:64px}
-.logo{font-family:Georgia,serif;font-size:1.25rem;color:var(--navy);text-decoration:none;font-weight:700}
-nav a{margin-left:22px;font-size:.85rem;color:var(--ink);text-decoration:none}nav a:hover{color:var(--blue)}
-.hero{background:var(--navy);color:#fff;padding:96px 0 80px}
-.hero h1{color:#fff;font-size:clamp(2rem,5vw,3.4rem);max-width:820px}
-.hero p{max-width:640px;margin:24px 0 32px;color:#b8c7d3;font-size:1.1rem}
-.btn{display:inline-block;background:var(--blue);color:#fff;padding:12px 26px;text-decoration:none;font-size:.9rem;border:0;cursor:pointer}
-.btn.o{background:none;border:1px solid #fff;margin-left:10px}
-section{padding:80px 0;border-bottom:1px solid var(--line)}section.g{background:var(--bg)}
-.tag{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:10px}
-h2{font-size:clamp(1.5rem,3vw,2.2rem);max-width:800px;margin-bottom:16px}
-.lead{color:var(--mute);max-width:720px;margin-bottom:36px}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
-.kpi{border-top:3px solid var(--blue);padding-top:14px}.kpi b{font-family:Georgia,serif;font-size:2.6rem;color:var(--navy);display:block;font-weight:400}
-.kpi span{font-size:.85rem;color:var(--mute)}
-.tabs{display:flex;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:28px}
-.tabs button{background:none;border:0;padding:12px 18px;font-size:.9rem;cursor:pointer;color:var(--mute);border-bottom:3px solid transparent}
-.tabs button.on{color:var(--navy);border-color:var(--blue);font-weight:700}
-.panel{display:none;grid-template-columns:1fr 1fr;gap:40px}.panel.on{display:grid}
-.panel ul{margin-left:18px}.panel li{margin-bottom:6px}
-.core{background:var(--navy);color:#fff;padding:32px;border-left:4px solid var(--cyan)}.core h3{color:#fff;margin-bottom:8px}.core p{color:#b8c7d3;margin-bottom:18px}
-.ctl{display:flex;gap:10px;margin-bottom:20px}.ctl button{padding:8px 16px;border:1px solid var(--navy);background:#fff;cursor:pointer;font-size:.85rem}.ctl button.on{background:var(--navy);color:#fff}
-.bars{display:flex;gap:40px;align-items:flex-end;height:260px;border-bottom:1px solid var(--navy);padding:0 10px}
-.bar{flex:1;background:var(--blue);position:relative;transition:height .5s;min-height:2px}.bar em{position:absolute;top:-24px;left:0;right:0;text-align:center;font-style:normal;font-weight:700;font-size:.9rem}
-.lab{display:flex;gap:40px;padding:8px 10px}.lab div{flex:1;text-align:center;font-size:.85rem;color:var(--mute)}
-.note{font-size:.75rem;color:var(--mute);margin-top:14px}
-.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:2px;margin-top:8px}
-.step{background:#fff;border:1px solid var(--line);padding:18px;cursor:pointer;border-top:3px solid var(--line)}
-.step.on{border-top-color:var(--blue);background:#eef2ff}.step b{font-family:Georgia,serif;font-size:1.5rem;color:var(--blue)}
-.step:focus-visible,.tabs button:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}.step h3{font-size:1rem;margin:6px 0}#sd{margin-top:20px;padding:20px;background:#fff;border-left:4px solid var(--blue)}
-.road{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.road div{border-top:3px solid var(--navy);padding-top:14px}.road h3{margin-bottom:8px}
-form{display:grid;gap:14px;max-width:560px}input,select,textarea{padding:11px;border:1px solid var(--line);font:inherit;width:100%}
-#out{background:var(--navy);color:#9fe6ff;padding:16px;font-size:.8rem;overflow:auto;display:none;margin-top:16px}
-footer{background:var(--navy);color:#8fa3b3;padding:36px 0;font-size:.8rem}
-@media(max-width:760px){nav{display:none}.panel.on{grid-template-columns:1fr}.road{grid-template-columns:1fr}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONG Mecánica Social | Estrategia & Impacto</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://googleapis.com" rel="stylesheet">
 </head>
 <body>
-<header><div class="w"><a class="logo" href="#">Mecánica Social</a>
-<nav><a href="#resumen">Resumen</a><a href="#servicios">Servicios</a><a href="#escuela">Escuela</a><a href="#ia">Motor IA</a><a href="#plan">Plan 2027-29</a><a href="#contacto">Contacto</a></nav></div></header>
 
-<div class="hero"><div class="w">
-<div class="tag" style="color:var(--cyan)">ONG Mecánica Social · Biobío, Chile</div>
-<h1>Convertimos conversaciones en acuerdos, capacidades y resultados verificables</h1>
-<p>Diseñamos, formamos y evaluamos procesos de colaboración entre Estado, empresas, academia y comunidades.</p>
-<a class="btn" href="#contacto">Conversemos</a><a class="btn o" href="#escuela">Conoce la Escuela</a></div></div>
+    <!-- Barra de Navegación McKinsey Style -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <span class="logo">MECÁNICA <span>SOCIAL</span></span>
+            <div class="nav-links">
+                <a href="#estrategia">Estrategia</a>
+                <a href="#core-business">Escuela</a>
+                <a href="#b2g-agreements">Alianzas B2G</a>
+                <a href="#ia-channel">Canal IA</a>
+            </div>
+        </div>
+    </nav>
 
-<section id="resumen"><div class="w">
-<div class="tag">Resumen ejecutivo</div>
-<h2>Existe una brecha entre la voluntad de generar impacto y la capacidad de ejecutarlo; Mecánica Social la cierra</h2>
-<p class="lead">Metas del trienio 2027-2029 (escenario base, hipótesis de planificación).</p>
-<div class="kpis">
-<div class="kpi"><b data-n="330" data-p="MM$ ">0</b><span>ingresos proyectados en 2029</span></div>
-<div class="kpi"><b data-n="3300">0</b><span>beneficiarios directos en el trienio</span></div>
-<div class="kpi"><b data-n="40">0</b><span>alianzas activas al 2029</span></div>
-<div class="kpi"><b data-n="4">0</b><span>líneas programáticas</span></div></div>
-<p class="note">Fuente: Plan de Negocios y Sostenibilidad 2027-2029, ONG Mecánica Social.</p></div></section>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <p class="subtitle">PERSPECTIVAS INSTITUCIONALES</p>
+            <h1>Modelando el futuro de la gestión organizacional y la innovación social.</h1>
+            <p class="lead">Desarrollamos capacidades estratégicas, unificando la formación territorial de alta dirección y sistemas avanzados de inteligencia artificial.</p>
+        </div>
+    </header>
 
-<section id="servicios" class="g"><div class="w">
-<div class="tag">Servicios</div>
-<h2>Cuatro líneas programáticas integran formación, facilitación, gestión y evaluación en una sola propuesta</h2>
-<div class="tabs" id="tabs"></div><div id="panels"></div></div></section>
+    <!-- Core Business Section (Escuela) -->
+    <section id="core-business" class="section bg-light">
+        <div class="container">
+            <div class="meta-label">NUESTRO SERVICIO CENTRAL</div>
+            <h2>Escuela de Formación Política "Marcelo Orellana Lagos"</h2>
+            <p class="section-desc">El motor principal de nuestro impacto es capacitar líderes de manera modular y certificar competencias críticas para intervenir positivamente en los territorios organizacionales.</p>
+            
+            <div class="grid-mckinsey">
+                <div class="card">
+                    <h3>01. Liderazgo Democrático</h3>
+                    <p>Conducción con propósito ético, transparencia y alta capacidad técnica para construir acuerdos institucionales de largo plazo.</p>
+                </div>
+                <div class="card">
+                    <h3>02. Gestión Municipal y Regional</h3>
+                    <p>Traducción directa de la visión estratégica en metodologías públicas, presupuesto eficiente y procedimientos administrativos de calidad.</p>
+                </div>
+            </div>
+            <div class="action-box">
+                <a href="https://mecanicasocial.github.io" target="_blank" class="btn-mckinsey">Acceder al Portal de la Escuela →</a>
+            </div>
+        </div>
+    </section>
 
-<section id="escuela"><div class="w">
-<div class="tag">Core business</div>
-<h2>La Escuela de Formación es el motor de capacidades de nuestra oferta</h2>
-<p class="lead">Cursos aplicados, proyectos reales y evidencia de aprendizaje: la base para que municipios, empresas y organizaciones colaboren mejor.</p>
-<div class="core"><h3>Escuela de Formación Política Marcelo Orellana Lagos</h3>
-<p>16 cursos: democracia, políticas públicas, participación ciudadana, diseño de proyectos, tecnología e IA, innovación social y proyecto final.</p>
-<a class="btn" id="lnkEscuela" href="#">Ir a la Escuela</a></div></div></section>
+    <!-- Nueva Sección: Alianzas Estratégicas B2G (Gobiernos y Municipios) -->
+    <section id="b2g-agreements" class="section">
+        <div class="container">
+            <div class="meta-label">DESARROLLO INSTITUCIONAL</div>
+            <h2>Vertical B2G: Convenios con Gobiernos y Municipios</h2>
+            <p class="section-desc">Diseñamos programas de formación masiva a medida para corporaciones locales, municipalidades (DIDECO/SECPLAN) y gobiernos regionales que buscan tecnificar y optimizar sus plantas profesionales bajo el estándar McKinsey.</p>
+            
+            <div class="grid-mckinsey">
+                <div class="card">
+                    <h3>Eficiencia Presupuestaria</h3>
+                    <p>Capacitación avanzada orientada a la formulación de proyectos de alto impacto que maximicen el uso de fondos públicos y mitiguen los riesgos de auditoría.</p>
+                </div>
+                <div class="card">
+                    <h3>Validación Metodológica</h3>
+                    <p>Cada propuesta o convenio institucional es sometido a un riguroso análisis normativo, asegurando el estricto cumplimiento de los estándares de gobernanza y ética pública.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="ia" class="g"><div class="w">
-<div class="tag">Mecánica Social IA</div>
-<h2>La IA canaliza cada solicitud, siempre con supervisión humana antes de cualquier decisión</h2>
-<p class="lead">Haz clic en cada etapa del proceso.</p>
-<div class="flow" id="flow"></div><div id="sd"></div>
-<p class="note">Principio institucional: la IA apoya, las personas deciden y responden.</p></div></section>
+    <!-- IA Canalizador Section (Sandbox Modificado con Flujo B2G) -->
+    <section id="ia-channel" class="section dark-section">
+        <div class="container">
+            <div class="meta-label color-blue">INFRAESTRUCTURA DIGITAL</div>
+            <h2>Canalización Inteligente mediante mecanica-social-ia</h2>
+            <p class="section-desc">De acuerdo con nuestro Manual de Procedimientos (SOP), toda solicitud y convenio se somete de forma obligatoria a una auditoría técnica automatizada mediante nuestro motor de Inteligencia Artificial.</p>
+            
+            <div class="ia-interactive-box">
+                <h3>Consola de Admisión y Validación Estratégica (Sandbox)</h3>
+                <p>Simula una consulta institucional seleccionando el canal corporativo correspondiente:</p>
+                <div class="simulation-terminal">
+                    <div class="selector-box" style="margin-bottom: 15px;">
+                        <label style="color: #00a3e0; font-size: 14px; margin-right: 10px;">Tipo de Entrada:</label>
+                        <select id="channel-type" style="background: #002244; color: white; border: 1px solid #334455; padding: 5px;">
+                            <option value="B2G">Convenio Institucional B2G (Municipio / GORE)</option>
+                            <option value="B2C">Postulación Abierta B2C (Líder Civil)</option>
+                        </select>
+                    </div>
+                    <input type="text" id="ia-query" placeholder="Ej: Validar transferencia de fondos y cupos para la municipalidad...">
+                    <button onclick="simulateIACall()" class="btn-ia">Ejecutar Pipeline IA</button>
+                    <div id="ia-response" class="terminal-output">Esperando inicialización del clúster de IA bajo estándar SOP...</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="plan"><div class="w">
-<div class="tag">Plan 2027-2029</div>
-<h2>Los ingresos se triplican en tres años, con diversificación como condición de sostenibilidad</h2>
-<div class="ctl"><button class="on" data-s="base">Escenario base</button><button data-s="cons">Escenario conservador</button></div>
-<div class="bars" id="bars"></div><div class="lab"><div>2027 · Validar</div><div>2028 · Replicar</div><div>2029 · Escalar</div></div>
-<p class="note">Millones de pesos chilenos nominales. Ninguna fuente de ingreso superará el 40% al cierre de 2029. No constituye asesoría financiera.</p>
-<div class="road" style="margin-top:44px"><div><h3>2027 · Validar</h3><p>Pilotos, primeros casos, marca y cartera de 80 cuentas.</p></div><div><h3>2028 · Replicar</h3><p>Productos estandarizados, renovaciones y expansión regional selectiva.</p></div><div><h3>2029 · Escalar</h3><p>Presencia en 3 regiones, licencias y cooperación internacional.</p></div></div></div></section>
+    <footer>
+        <p>&copy; 2026 ONG Mecánica Social. Todos los derechos reservados. Edición Estratégica McKinsey Frameworks.</p>
+    </footer>
 
-<section id="contacto" class="g"><div class="w">
-<div class="tag">Contacto</div><h2>Cuéntanos tu desafío y lo convertimos en una propuesta</h2>
-<form id="f"><input name="nombre" placeholder="Nombre" required><input name="org" placeholder="Organización" required>
-<select name="seg"><option>Municipio o servicio público</option><option>Empresa</option><option>Fundación</option><option>Universidad</option><option>Organización social</option></select>
-<textarea name="desafio" rows="4" placeholder="Describe tu desafío (no incluyas datos personales sensibles)"></textarea>
-<button class="btn" type="submit">Preparar solicitud</button></form><pre id="out"></pre>
-<p class="note">Versión demostrativa: genera la solicitud en formato JSON compatible con el contrato de mecanica-social-ia. No se envían datos a ningún servidor.</p></div></section>
-
-<footer><div class="w">ONG Mecánica Social · Concepción, Chile · Contenido generado con asistencia de IA y revisado por personas · Documento de planificación, cifras referenciales.</div></footer>
-
-<script>
-// Enlaces del ecosistema Mecánica Social
-const URL_ESCUELA="https://mecanicasocial.github.io/mecanica-social-escuela/";
-document.getElementById("lnkEscuela").href=URL_ESCUELA;
-
-const L=[["Educación cívica y liderazgo","Actores con más competencias para participar, decidir y rendir cuentas.",["Academia de Liderazgo Cívico Territorial","Talleres ejecutivos","Formación de formadores"]],
-["Gestión comunitaria","Acuerdos legítimos y gobernanza local.",["Laboratorio de Colaboración Territorial","Mapeo de actores y mesas","Presupuestos participativos"]],
-["RSE y valor compartido","Inversión social alineada con necesidades y resultados.",["Programa Empresa-Comunidad","Indicadores e informes","Voluntariado experto"]],
-["Fortalecimiento y evaluación","Organizaciones sostenibles y programas eficaces.",["Escuela de Gestión para OSC","Teoría del cambio y métricas","PMO social y tableros"]]];
-const T=document.getElementById("tabs"),P=document.getElementById("panels");
-L.forEach((l,i)=>{T.insertAdjacentHTML("beforeend",`<button class="${i?"":"on"}">${i+1}. ${l[0]}</button>`);
-P.insertAdjacentHTML("beforeend",`<div class="panel ${i?"":"on"}"><div><h3>${l[0]}</h3><p style="margin-top:10px">${l[1]}</p></div><ul>${l[2].map(x=>`<li>${x}</li>`).join("")}</ul></div>`)});
-T.onclick=e=>{const i=[...T.children].indexOf(e.target);if(i<0)return;[...T.children].forEach((b,j)=>b.classList.toggle("on",j==i));[...P.children].forEach((p,j)=>p.classList.toggle("on",j==i))};
-
-const S=[["Solicitud","Una persona u organización completa el formulario de la Escuela o del sitio."],
-["Validación IA","mecanica-social-ia valida y estructura la solicitud según esquemas y prompts versionados."],
-["Revisión humana","Una persona responsable revisa, corrige y aprueba. Ningún resultado significativo sale sin este paso."],
-["Derivación","La solicitud se dirige a la Escuela, a un servicio de la ONG o a una alianza."],
-["Evidencia","Se registra el resultado, se mide y se documenta para mejorar."]];
-const F=document.getElementById("flow"),D=document.getElementById("sd");
-function st(i){[...F.children].forEach((c,j)=>c.classList.toggle("on",j==i));D.innerHTML=`<b>${S[i][0]}.</b> ${S[i][1]}`}
-S.forEach((s,i)=>{F.insertAdjacentHTML("beforeend",`<div class="step" role="button" tabindex="0"><b>0${i+1}</b><h3>${s[0]}</h3></div>`);F.lastChild.onclick=()=>st(i);F.lastChild.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();st(i)}}});st(0);
-
-const V={base:[145,225,330],cons:[105,158,225]},B=document.getElementById("bars");
-function bars(k){const m=330;B.innerHTML=V[k].map(v=>`<div class="bar" style="height:${v/m*100}%"><em>${v}</em></div>`).join("")}
-bars("base");document.querySelectorAll(".ctl button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".ctl button").forEach(x=>x.classList.remove("on"));b.classList.add("on");bars(b.dataset.s)});
-
-document.querySelectorAll("[data-n]").forEach(el=>{const n=+el.dataset.n,p=el.dataset.p||"";let c=0;
-new IntersectionObserver((e,o)=>{if(!e[0].isIntersecting)return;o.disconnect();const t=setInterval(()=>{c+=n/40;if(c>=n){c=n;clearInterval(t)}el.textContent=p+Math.round(c).toLocaleString("es-CL")},30)}).observe(el)});
-
-document.getElementById("f").onsubmit=e=>{e.preventDefault();const d=Object.fromEntries(new FormData(e.target));
-const o=document.getElementById("out");o.style.display="block";o.textContent=JSON.stringify({origen:"mecanica-social-institucional",fecha:new Date().toISOString(),solicitud:d,estado:"borrador",revision_humana_requerida:true},null,2)};
-</script>
-</body></html>
+    <script src="app.js"></script>
+</body>
+</html>
