@@ -1,0 +1,141 @@
+:root {
+    --primary-blue: #002244;
+    --mckinsey-cyan: #00a3e0;
+    --text-dark: #111111;
+    --text-muted: #555555;
+    --bg-light: #f4f6f8;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+}
+
+.navbar {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--primary-blue);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    margin-left: 30px;
+    font-size: 14px;
+}
+
+.hero {
+    max-width: 1100px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    color: var(--primary-blue);
+    max-width: 800px;
+    margin: 20px 0;
+}
+
+.section {
+    padding: 80px 20px;
+}
+
+.bg-light { background-color: var(--bg-light); }
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.meta-label {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--mckinsey-cyan);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.grid-mckinsey {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.card {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.btn-mckinsey {
+    display: inline-block;
+    background: var(--primary-blue);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 30px;
+}
+
+.dark-section {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.dark-section h2 { color: white; }
+
+.simulation-terminal {
+    background: #001122;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+#ia-query {
+    width: 70%;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid #334455;
+    color: white;
+}
+
+.btn-ia {
+    padding: 10px 20px;
+    background: var(--mckinsey-cyan);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.terminal-output {
+    margin-top: 15px;
+    font-family: monospace;
+    color: #00ffcc;
+}
